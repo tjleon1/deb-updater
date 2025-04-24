@@ -1,0 +1,24 @@
+# Ignore backup and temporary files
+*.log
+*.log.*
+*.bak
+*~
+
+# GPG password file (DO NOT commit encrypted secrets)
+.email-password.gpg
+
+# System-specific config
+config.ini
+
+# Editor/project files
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Archive files
+*.zip
