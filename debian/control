@@ -1,0 +1,14 @@
+Source: deb-updater
+Section: utils
+Priority: optional
+Maintainer: Tim Leon <timothyjleon@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Homepage: https://github.com/tjleon1/deb-updater
+
+Package: deb-updater
+Architecture: all
+Depends: bash (>= 5.0)
+Description: Automates discovery and updating of manually installed .deb packages
+ A user-friendly, cron/systemd-compatible tool to detect and update
+ manually installed .deb software with changelog summaries and email alerts.

@@ -1,0 +1,2 @@
+deb-updater.sh usr/bin/deb-updater
+deb-updater.service lib/systemd/system/

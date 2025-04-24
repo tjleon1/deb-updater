@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+systemctl daemon-reexec || true
+systemctl enable deb-updater.service || true
+systemctl start deb-updater.service || true

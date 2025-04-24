@@ -163,3 +163,5 @@ find "$DOWNLOAD_DIR" -type f -name "*.deb" -mtime +2 -delete
 
 echo "✅ Update check complete." | tee -a "$LOG_FILE"
 notify "Deb Updater" "All checks completed."
+echo "Deb Updater running..."
+

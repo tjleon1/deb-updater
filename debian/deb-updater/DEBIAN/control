@@ -1,0 +1,12 @@
+Package: deb-updater
+Version: 1.0.0
+Architecture: all
+Maintainer: Tim Leon <timothyjleon@gmail.com>
+Installed-Size: 17
+Depends: bash (>= 5.0)
+Section: utils
+Priority: optional
+Homepage: https://github.com/tjleon1/deb-updater
+Description: Automates discovery and updating of manually installed .deb packages
+ A user-friendly, cron/systemd-compatible tool to detect and update
+ manually installed .deb software with changelog summaries and email alerts.

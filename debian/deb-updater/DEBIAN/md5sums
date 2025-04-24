@@ -1,0 +1,3 @@
+75b6dca03b7f10b176058367a85a9341  lib/systemd/system/deb-updater.service
+0a3f531c80a17d29e4512b6e01061cdf  usr/bin/deb-updater/deb-updater.sh
+fe4de3915260a86298d269ae11006531  usr/share/doc/deb-updater/changelog.gz

@@ -1,0 +1,10 @@
+[Unit]
+Description=Debian Package Auto-Updater
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/deb-updater
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

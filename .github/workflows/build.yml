@@ -1,0 +1,46 @@
+name: Build and Sign .deb Package
+
+on:
+  release:
+    types: [published]  # Triggers when you publish a new GitHub Release
+
+jobs:
+  build-deb:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v4
+
+    - name: Install Debian packaging tools
+      run: |
+        sudo apt update
+        sudo apt install -y devscripts debhelper lintian gnupg fakeroot
+
+    - name: Import GPG private key
+      env:
+        GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+      run: |
+        echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+
+    - name: Set default GPG key
+      env:
+        GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
+      run: |
+        echo "default-key $GPG_KEY_ID" >> ~/.gnupg/gpg.conf
+
+    - name: Build .deb package
+      run: |
+        export DEBFULLNAME="Deb Updater CI"
+        export DEBEMAIL="${{ secrets.MAINTAINER_EMAIL }}"
+        debuild -k${{ secrets.GPG_KEY_ID }} -us -uc
+
+    - name: Upload .deb to GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: |
+          ../*.deb
+          ../*.changes
+          ../*.buildinfo
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
